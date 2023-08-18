@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style>
+.moustache{
+  height:180px;
+  width:180px;
+  left:100px;
+  border-radius:50%;
+  position:absolute;
+  color:black;
+  box-shadow:
+    150px 240px 0 0 black,
+    300px 240px 0 0 black
+    ;
+    animation: rotateIn 1s ease-in-out;
+}
+@keyframes rotateIn{
+	from {
+		transform: rotate(-150deg);}
+	to {
+		transform: rotate(0deg);
+	}
+}
+.moustache::before{
+  content:"";
+  width:210px;
+  height:120px;
+  left:30px;
+  top:120px;
+  position:absolute;
+  border-bottom:solid 180px black;
+  border-radius: 0 0 0 100%;
+  transform:rotate(-40deg);
+  transform-origin:right 210px;
+}
+.moustache::after{
+  content:"";
+  width:210px;
+  height:120px;
+  left:390px;
+  top:120px;
+  position:absolute;
+  border-bottom:solid 180px black;
+  border-radius: 0 0 100% 0; 
+  transform:rotate(40deg);
+  transform-origin:left 210px;
+}
+</style>
+</head>
+<body>
+<div class="moustache">
+  
+</div>
+
+</script>
+</body>
+</html>

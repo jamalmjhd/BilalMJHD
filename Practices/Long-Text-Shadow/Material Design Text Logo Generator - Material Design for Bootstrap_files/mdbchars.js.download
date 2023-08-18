@@ -1,0 +1,235 @@
+   $(document).ready(function() {
+
+      icolor = '#FFF';
+    	iconr = 68;
+    	icong = 167;
+    	iconb = 235;
+    	iconf = 80;
+    	iconw = 150;
+    	icons = 35;
+    	icona = 0.7;
+    	iconc = 0;
+      icon = 'a';
+      code = '';
+
+
+        textShadow = '';
+        fontSize = '';
+        color = '';
+        height = '';
+        width = '';
+        lineHeight = '';
+        borderRadius = '';
+        textAlign = '';
+        backgroundColor = '';
+
+
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+
+    });
+
+
+$(function(){
+  $('#txt').keyup(function(){
+     $('#preview').text($(this).val());
+     printCode($(this).val());
+
+  });
+});
+
+
+function printCode(char){
+
+         var element = document.getElementById('icon');
+        style = window.getComputedStyle(element);
+
+        textShadow = style.getPropertyValue('text-shadow');
+        fontSize = style.getPropertyValue('font-size');
+        color = style.getPropertyValue('color');
+        height = style.getPropertyValue('height');
+        width = style.getPropertyValue('width');
+        lineHeight = style.getPropertyValue('line-height');
+        borderRadius = style.getPropertyValue('border-radius');
+        textAlign = style.getPropertyValue('text-align');
+        backgroundColor = style.getPropertyValue('background-color');
+
+        code = '<p id="icon" style="text-shadow: ' + textShadow + '; font-size: ' + fontSize + '; color: ' +color+'; height: ' + height + '; width: '+width+'; line-height: '+lineHeight+'; border-radius: '+borderRadius+'; text-align: '+textAlign+'; background-color: '+backgroundColor+';"> '+char+' </p> ';
+
+$('#code').val(code);
+
+}
+
+//Change Backgrund color
+function changeBackground (color){
+var color = hexToRgb("#"+color);
+color.toString();  
+iconr = color.r;
+icong = color.g;  
+iconb = color.b;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+}
+
+
+
+//Change Icon color
+function changeColor(color){
+var color = hexToRgb("#"+color);
+color.toString();  
+icolor = color;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+}
+
+//Slider 
+//Size
+$(function() {
+    $( "#size-slider" ).slider({
+      range: "max",
+      min: 0,
+      max: 400,
+      value: iconw,
+      slide: function( event, ui ) {
+        $( "#size" ).val( ui.value );
+      },
+      change: function( event, ui ) {}
+
+    });
+    $( "#size" ).val( $( "#size-slider" ).slider( "value" ) );
+  });
+
+$( "#size-slider" ).on( "slide", function( event, ui ) {
+
+iconw = ui.value;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+
+
+} );
+
+
+
+//Font Size
+$(function() {
+    $( "#font-size-slider" ).slider({
+      range: "max",
+      min: 0,
+      max: 200,
+      value: iconf,
+      slide: function( event, ui ) {
+        $( "#fontsize" ).val( ui.value );
+      },
+      change: function( event, ui ) {}
+
+    });
+    $( "#fontsize" ).val( $( "#font-size-slider" ).slider( "value" ) );
+  });
+
+$( "#font-size-slider" ).on( "slide", function( event, ui ) {
+
+iconf = ui.value;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+
+
+} );
+
+
+//Radius
+$(function() {
+    $( "#border-radius-slider" ).slider({
+      range: "max",
+      min: 0,
+      max: 50,
+      value: iconc,
+      slide: function( event, ui ) {
+        $( "#radius" ).val( ui.value );
+      },
+      change: function( event, ui ) {}
+
+    });
+    $( "#radius" ).val( $( "#border-radius-slider" ).slider( "value" ) );
+  });
+
+$( "#border-radius-slider" ).on( "slide", function( event, ui ) {
+
+iconc = ui.value;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+
+} );
+
+
+//Shadow
+$(function() {
+    $( "#shadow-depth-slider" ).slider({
+      range: "max",
+      min: 0,
+      max: 100,
+      value: icons,
+      slide: function( event, ui ) {
+        $( "#shadow" ).val( ui.value );
+      },
+      change: function( event, ui ) {}
+
+    });
+    $( "#shadow" ).val( $( "#shadow-depth-slider" ).slider( "value" ) );
+  });
+
+$( "#shadow-depth-slider" ).on( "slide", function( event, ui ) {
+
+icons = ui.value;
+        $('#icon').flatify({'r':iconr, 'g':icong, 'b':iconb, 'f':iconf, 'w':iconw, 's':icons, 'a':icona, 'c':iconc , 'icolor':icolor});
+printCode();
+
+
+} );
+
+
+
+// HEX TO RGB
+function hexToRgb(hex, alpha) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    var toString = function () {
+        if (this.alpha == undefined) {
+            return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
+        }
+        if (this.alpha > 1) {
+            this.alpha = 1;
+        } else if (this.alpha < 0) {
+            this.alpha = 0;
+        }
+        return "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.alpha + ")";
+    } 
+    if (alpha == undefined) {
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+            toString: toString
+        } : null;
+    }
+    if (alpha > 1) {
+        alpha = 1;
+    } else if (alpha < 0) {
+        alpha = 0;
+    }
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+        alpha: alpha,
+        toString: toString
+    } : null;
+}
+
+$(function(){
+  $('#txt').keyup(function(){
+     $('#icon').text($(this).val());
+  });
+});

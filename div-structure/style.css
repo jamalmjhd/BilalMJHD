@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Calibri','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+/*    outline: 1px solid white;*/
+}
+.container {
+/*    background:url("second_assignment.jpg");*/
+    width: 571px;
+    height: 965px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 35px 9px 35px 0;
+    font-size: 29px;
+    background:#879BB3;
+}
+
+.slider-image {
+    padding:80px 10px 73px 0;
+    font-size:29px;
+    background:#DFDFDF;
+}
+
+.spacer {
+    font-size: 29px;
+    background: #b28d87;
+    padding: 1px 12px 3px 0;
+}
+
+.articles-3 .article {
+    background: #8e87b1;
+    font-size: 24px;
+    width: 26%;
+    float: left;
+    padding:42px 0 42px 5px;
+    margin-right: 58px;
+}
+
+.articles-3 {
+/*    height: 134px;*/
+    background:#87b2ab;
+    padding: 12px 21px 9px 21px;
+}
+
+.clear {
+    clear: both;
+}
+
+.articles-4 {
+    background: #b2a789ff;
+    height: 140px;
+    padding: 26px 0 0px 4px;
+}
+.articles-4 .article {
+    background: #8e87b1;
+    float: left;
+    width : 19%;
+    padding:28px 0 29px 0px;
+    margin: 0 17px;
+    font-size: 23px;
+}
+.article-5 {
+    height: 187px;
+    padding: 17px 24px 10px 25px;
+    background: #b2878f;
+}
+
+.article-5 > .article {
+    width: 50%;
+    float: left;
+    padding:65px 70px 65px 65px;
+    font-size: 24px;
+    background: #8e87b1;
+}
+.article-5 .sidebar {
+    width: 41.6%;
+    float: right;
+    padding: 11px;
+    background: #87b2ab;
+}
+
+.sidebar .article {
+    font-size: 24px;
+    padding: 17px;
+    background-color: #8e87b1;
+}
+.sidebar .article:first-child {
+    margin-bottom: 12px;
+}
+
+.article-6 {
+    height: 127px;
+    padding: 8px 33px 8px 37px;
+    background: #87b29f;
+}
+
+.article-6 .article {
+    width: 27%;
+    float: left;
+    background:#8e87b1;
+    padding: 40px 40px 40px 37px;
+    margin-right: 47px;
+    font-size: 24px;
+}
+
+.article-6 .article:last-child {
+    float: right;
+    margin-right: 0;
+}
+
+.copy {
+    font-size: 24px;
+    background: #b3b3b3;
+    padding: 5px 0 8px;
+}
+
+.articles-3 .article:nth-child(3) {
+    float: right;
+    margin-right: 0px;
+}

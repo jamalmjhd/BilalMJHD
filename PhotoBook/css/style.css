@@ -1,0 +1,78 @@
+.camera-shutter{
+	width: 16px;
+	position: relative;
+	top: -2px;
+}
+.contact-number{
+	background-color: #ffd200
+}
+.contact-number span{
+	border-bottom: 1px dotted #000;
+	color: black;
+}
+.hero-image{
+	background:#ffd200 url("../img/hero.jpg") bottom center no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+.mb-6{
+	margin-bottom: 4rem !important;
+}
+.btn-outline-dark {
+      color: #343a40;
+    background-color: transparent;
+    background-image: none;
+    border-color: #343a40;
+}
+
+.btn-outline-dark:hover {
+  color: #ffd200;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+.advantage{
+	text-align: center;
+}
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+}
+.display-6 {
+    font-size: 2.15rem;
+    font-weight: 300;
+    line-height: 1.1;
+}
+.display-7 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.1;
+}
+#testimonial{
+	background: #F7F7F7 url("../img/banner-2.png") center left no-repeat;
+	background-size: cover;
+}
+.display-container{
+	position: relative;
+}
+.display-middle{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-ms-transform:translate(-50%,-50%)
+}
+.bg-theme {
+    background-color: #ffd200;
+}
+.small-caps{
+    font-variant: small-caps;
+}
+
+.mt-6-5 {
+    margin-top: 4rem;
+}
+
+.mt-6 {
+    margin-top: 2.5rem;
+}

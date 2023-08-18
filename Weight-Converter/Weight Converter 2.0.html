@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Weight Converter 2.0</title>
+<meta name="description" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern. Front-End Web Developer. PSD to HTML Expert. Convert your web design into a living and breathing website. A much faster and efficient coder.">
+	  <meta name="keywords" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern, Bilal Rasool, Bilal Rasool Mujahid, Bilal MJHD, MJHD, Bilal, HTML,CSS,PHP,JavaScript,PSD, PSD to HTML, Front-End, Developer, Web Developer, Web Designer, Photoshop, ">
+	  <meta name="author" content="Bilal Rasool - Front-End Web Developer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<style>
+    #wrapper{
+        width:576px;margin:0 auto;
+    }
+        @media (max-width:576px) {
+        #wrapper{
+            width: 100% !important;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container" id="wrapper">
+<div class="card p-3 m-3">
+    <div class="card-title text-center">
+        <h1 class="display-4">Weight Converter</h1>
+        <p class="lead">Welcome to Online Weight Converter</p>
+    </div>
+    <div class="card-text">
+        <div class="input-group" id="kgInputGroup">
+            <span class="input-group-addon">KGs</span>
+            <input type="number" id="kg" class="form-control">
+            <span class="input-group-btn">
+            <button id="convert" class="btn btn-primary">Convert</button>
+            </span>
+        </div><br>
+        <div id="convertError" style="display:none">
+            <div class="alert alert-danger">Please Enter A Value Greater Than 0!</div>
+        </div>
+        <div id="result">
+            <div class="input-group mb-2 result">
+                <span class="input-group-addon w-50">Grams</span>
+                <input type="number" id="grams" class="form-control" disabled>
+            </div>
+            <div class="input-group mb-2 result">
+                <span class="input-group-addon w-50">Pounds</span>
+                <input type="number" id="pounds" class="form-control" disabled>
+            </div>
+            <div class="input-group mb-2 result">
+                <span class="input-group-addon w-50">Ounces</span>
+                <input type="number" id="ounces" class="form-control" disabled>
+            </div>
+            <div class="input-group mb-2 result">
+                <span class="input-group-addon w-50">Milligrams</span>
+                <input type="number" id="milligrams" class="form-control" disabled>
+            </div>
+            <div class="input-group mb-2 result">
+                <span class="input-group-addon w-50">Carats</span>
+                <input type="number" id="carats" class="form-control" disabled>
+            </div>
+        </div>
+        <button id="reset" class="btn btn-secondary btn-block my-4">Reset</button>
+        <div class="alert alert-info">You Can <strong>Reset</strong> form with button above.</div>
+    </div>
+</div>
+    </div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#convert').click(
+                function initConvert(){
+                
+                var kg = $('#kg').val();
+                if (kg == 0 || kg == '') {
+                    $('#kgInputGroup').addClass('has-danger');
+                    $('#convertError').fadeIn();
+                    $('.result').removeClass('has-success');
+                    $('#kg').val('');
+                    $('.result input').val('');
+                }else {
+                    $('#kgInputGroup').removeClass('has-danger');
+                    $('#convertError').fadeOut();
+                    $('.result').addClass('has-success');
+                    convert();
+                }
+                function convert(kg){
+                    kg = $('#kg').val();
+                    $('#grams').val(kg * 1000);
+                    $('#pounds').val(kg * 2.204622621848776);
+                    $('#ounces').val(kg * 35.27396194958041);
+                    $('#milligrams').val(kg * 1000000);
+                    $('#carats').val(kg * 5000);
+                    
+                }    
+                
+            });
+            $('#reset').click(function(){
+                $('#kg').val('');
+                $('.result input').val('');
+                $('.result').removeClass('has-success');
+            })
+            
+            
+        });
+    </script>
+</body>
+</html>

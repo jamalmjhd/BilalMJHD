@@ -1,0 +1,107 @@
+(function( $ ) {
+	'use strict';
+
+	$( document ).ready(function() {
+        var userInfo = user_info_chat // dane przekazane w php zawiera : id, gravatar i opcjonalnie meta
+		var error = false;
+		var connection = false;
+		var reconnectionTryCount = 0;
+        if(userInfo.unread && userInfo.unread > 0){
+            $('.headerNotifCountBadge').append($('<span class="badge badge-danger badge-pill mr-2">'+userInfo.unread+'</span>'))
+		}
+		
+		if(parseInt(userInfo.id)){
+
+			try {
+				var websocket = new WebSocket("wss://mdb-chat.mdbootstrap.com/?id="+userInfo.id); 
+				websocket.onopen = function(event) { 
+					onOpenActions(event)
+				}
+				websocket.onmessage = function(event) {
+					onMessageActions(event)
+				};
+				websocket.onerror = function(event){
+					onErrorActions(event)
+				};
+				websocket.onclose = function(event){
+					oncloseActions(event)
+				}; 
+			} catch (e) {
+				error = true;
+				connection = false
+				console.log('Sorry, the web socket at wss://mdb-chat.mdbootstrap.com is un-available');
+				
+			}
+		}
+		function reconnect(){
+			if(reconnectionTryCount > 10){
+				error = true;
+				connection = false;
+				console.warn('Sorry, the web socket at wss://mdb-chat.mdbootstrap.com is un-available');
+			}
+			try {
+				var socket = new WebSocket("wss://mdb-chat.mdbootstrap.com/?id="+userInfo.id); 
+				socket.onopen = function(event) { 
+					onOpenActions(event)
+				}
+				socket.onmessage = function(event) {
+					onMessageActions(event)
+				};
+				socket.onerror = function(event){
+					onErrorActions(event)
+				};
+				socket.onclose = function(event){
+					oncloseActions(event)
+				}; 
+				websocket = socket
+			} catch (e) {
+				error = true;
+				connection = false
+				console.warn('Sorry, the web socket at wss://mdb-chat.mdbootstrap.com is un-available');
+				
+			}	
+		}
+
+		function oncloseActions(event){
+			// console.log('close', event);
+			connection = false
+			if(event.code === 1006 && !error){
+				reconnectionTryCount++;
+				reconnect();
+			}
+			// TODO czerwona ikonka
+		}
+		
+		function onErrorActions(event){
+			// console.log('onerror', event);
+			connection = false
+			console.warn('Sorry, the web socket at wss://edge-chat.mdbootstrap.com is un-available');
+			error = true;
+			// TODO czerwona ikonka
+		}
+		
+		function onOpenActions(event){
+			connection = true
+			// TODO zielona ikonka
+		}
+
+		function onMessageActions(event){
+			var Data = JSON.parse(event.data);
+            incrementMainBadgeNavbar()
+            toastr.info('You recived message from '+ Data.display_name, '', {positionClass: "toast-bottom-left"});
+        }
+        function incrementMainBadgeNavbar(){
+            if($('.headerNotifCountBadge > span').length){
+                var all_read_count = +$('.headerNotifCountBadge > span').first().text() || 0
+                if(all_read_count < 1){
+                    $('.headerNotifCountBadge > span').text(1);
+                }
+                $('.headerNotifCountBadge > span').text(parseInt(all_read_count) + 1);
+            } else {
+                $('.headerNotifCountBadge').append($('<span class="badge badge-danger badge-pill mr-2">1</span>'))
+            }
+        }    
+    }); 
+    
+
+})( jQuery );

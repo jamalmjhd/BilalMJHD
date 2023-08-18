@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+ <meta name="description" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern. Front-End Web Developer. PSD to HTML Expert. Convert your web design into a living and breathing website. A much faster and efficient coder.">
+	  <meta name="keywords" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern, Bilal Rasool, Bilal Rasool Mujahid, Bilal MJHD, MJHD, Bilal, HTML,CSS,PHP,JavaScript,PSD, PSD to HTML, Front-End, Developer, Web Developer, Web Designer, Photoshop, ">
+	  <meta name="author" content="Bilal Rasool - Front-End Web Developer">
+	<meta name="viewpot" content="width=device-width, initial-scale=1">
+	<title>Weight Converter</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+      
+    </style>
+    <script>
+       function convertKG(kg) {
+       	kg = document.getElementById('kg').value;
+       	document.getElementById('grams').value = kg * 1000;
+       	document.getElementById('pounds').value = kg * 2.2046;
+       	document.getElementById('miligrams').value = kg * 1000000;
+       	document.getElementById('tons').value = kg * 0.0011023;
+       	document.getElementById('ounces').value = kg * 35.274;
+       }
+
+       // Reset Button
+       function reset(reset){
+       	document.getElementById('kg').value = 0;
+       	convertKG();
+       }
+    </script>
+</head>
+<body>
+	<div class="container">
+	    <div class="card bg-info p-4 my-4">
+            <div class="card-title text-center">
+                <h1 class="display-4">
+                    Weight Converter
+                </h1>
+                <p class="lead">
+                    Welcome to online Weight Converter
+                </p>
+	        </div>
+	        <div class="card-text">
+	            <div class="input-group mb-5">
+                    <span class="input-group-addon">Weight in KG:</span>
+	                <input name="inputKG" id="kg" type="number" class="form-control">
+	                <span class="input-group-btn">
+                        <button id="convert" class="btn btn-primary" onclick="convertKG()">Convert</button>
+	                </span>
+	            </div>
+	            <div class="input-group mb-3">
+	                <span class="input-group-addon bg-success text-white" style="width: 10rem">
+	                    Weight in Grams: 
+	                </span>
+	                <input id="grams" type="number" class="form-control">
+	            </div>
+	            <div class="input-group mb-3">
+	                <span class="input-group-addon bg-success text-white" style="width: 10rem">
+	                    Pounds: 
+	                </span>
+	                <input id="pounds" type="number" class="form-control">
+	            </div>
+	            <div class="input-group mb-3">
+	                <span class="input-group-addon bg-success text-white" style="width: 10rem">
+	                    MiliGrams: 
+	                </span>
+	                <input id="miligrams" type="number" class="form-control">
+	            </div>
+	            <div class="input-group mb-3">
+	                <span class="input-group-addon bg-success text-white" style="width: 10rem">
+	                    US Ton: 
+	                </span>
+	                <input id="tons" type="number" class="form-control">
+	            </div>
+	            <div class="input-group mb-3">
+	                <span class="input-group-addon bg-success text-white" style="width: 10rem">
+	                    Ounces: 
+	                </span>
+	                <input id="ounces" type="number" class="form-control">
+	            </div>
+	            <button id="reset" class="btn btn-secondary" onclick="reset()">Reset Form</button>
+	            <div class="alert alert-info mt-3">
+	                You can press <strong>Reset Buton</strong> for another conversion.
+	            </div>
+            </div>
+	    </div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="description" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern. Front-End Web Developer. PSD to HTML Expert. Convert your web design into a living and breathing website. A much faster and efficient coder.">
+	  <meta name="keywords" content=" Weight Converter, Unit Converter. Convert KGs to Pounds, Grams etc. Online Weight Converter. Elegent, Sleek, Modern, Bilal Rasool, Bilal Rasool Mujahid, Bilal MJHD, MJHD, Bilal, HTML,CSS,PHP,JavaScript,PSD, PSD to HTML, Front-End, Developer, Web Developer, Web Designer, Photoshop, ">
+	  <meta name="author" content="Bilal Rasool - Front-End Web Developer">
+	<meta name="viewpot" content="width=device-width, initial-scale=1">
+	<title>Weight Converter</title>
+	<style type="text/css">
+		h1{
+			display: inline-block;
+			background-color: skyblue;
+			margin: 0;
+			padding-bottom: 24px;
+			padding-right: 4px;
+			padding-left: 4px
+		}
+		p{
+			display: inline-block;
+			margin:0;
+			margin-bottom: 16px
+		}
+	</style>
+    <script>
+    	function initConvert() {
+    		x = document.getElementById('kg').value;
+    		if (x == 0 || x == "") {
+    			window.alert('Enter value greater than 0.');
+    		}else{
+    			convertKG();
+    		}
+    	}
+
+       function convertKG(kg) {
+       	kg = document.getElementById('kg').value;
+       	document.getElementById('grams').value = kg * 1000;
+       	document.getElementById('pounds').value = kg * 2.2046;
+       	document.getElementById('miligrams').value = kg * 1000000;
+       	document.getElementById('tons').value = kg * 0.0011023;
+       	document.getElementById('ounces').value = kg * 35.274;
+       }
+
+       // Reset Button
+       function reset(){
+       	document.getElementById('kg').value = 0;
+       	convertKG();
+       }
+    </script>
+</head>
+<body>
+	<div style="width: 400px;margin:0 auto;">
+          <table>
+          	<caption>
+          		<h1>Weight Converter</h1>
+          		<p style="
+			background-color:purple;
+			color:white;">Welcome to the online weight converter</p>
+          	</caption>
+          	<tr>
+          		<td>Weight In KG:</td>
+          		<td><input type="number" id="kg"></td>
+          		<td><button onclick="initConvert()">Convert</button></td>
+          	</tr>
+          </table>
+          <br><br>
+          <table>
+          	<tr>
+          		<td>Weight In Grams:</td>
+          		<td><input type="number" id="grams"></td>
+          	</tr>
+          	<tr>
+          		<td>Pounds:</td>
+          		<td><input type="number" id="pounds"></td>
+          	</tr>
+          	<tr>
+          		<td>MilliGram:</td>
+          		<td><input type="number" id="miligrams"></td>
+          	</tr>
+          	<tr>
+          		<td>US Tons:</td>
+          		<td><input type="number" id="tons"></td>
+          	</tr>
+          	<tr>
+          		<td>Ounces:</td>
+          		<td><input type="number" id="ounces"></td>
+          	</tr>
+
+          </table>
+<button onclick="reset()">Reset Form</button>
+          <p >You can press Reset Button for another conversion.</p>
+	</div>
+	
+</body>
+</html>
